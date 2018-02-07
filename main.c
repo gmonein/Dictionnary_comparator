@@ -111,6 +111,7 @@ int		main(int argc, char **argv)
 				printf("%s\n", names[i]);
 		}
 	}
+	/*
 	printf("1 error permit\n");
 	for (int i = 0; names[i]; i++)
 	{
@@ -128,5 +129,5 @@ int		main(int argc, char **argv)
 			if (!strcmp_more(names[i], dico[j], 0b1, 1))
 				printf("%s -> %s\n", names[i], dico[j]);
 		}
-	}
+	}*/ //CA NE MARCHE PAS LOL
 }
