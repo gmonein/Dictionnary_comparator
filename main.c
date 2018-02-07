@@ -24,9 +24,15 @@ char	*ft_read(char *file_path)
 	if ((fd = open(file_path, O_RDONLY)) == -1)
 		return (NULL);
 	if ((size = get_fd_size(fd)) < 1)
+	{
+		close(fd);
 		return (NULL);
+	}
 	if(!(res = (char *)malloc(size + 1)))
+	{
+		close(fd);
 		return (NULL);
+	}
 	read(fd, res, size);
 	res[size] = '\0';
 	close(fd);
@@ -104,13 +110,9 @@ int		main(int argc, char **argv)
 		return (1);
 	printf("Perfect name\n");
 	for (int i = 0; names[i]; i++)
-	{
 		for (int j = 0; dico[j]; j++)
-		{
 			if (!strcmp(names[i], dico[j]))
 				printf("%s\n", names[i]);
-		}
-	}
 	/*
 	printf("1 error permit\n");
 	for (int i = 0; names[i]; i++)
